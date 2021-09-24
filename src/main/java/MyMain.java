@@ -7,8 +7,15 @@ public class MyMain {
     //     4
     //     2
     public static void printEvensBackwards(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
-        return;
+        int[] newarr = new int[arr.length];
+        int currentindex = 0;
+        for (int i = arr.length-1; i >=0; i=i-1) {
+            if (arr[i] % 2 ==0){
+                System.out.println(arr[i]);
+                currentindex+=1;
+            }
+
+        }
     }
 
     // Next, write a method that checks if an array is sorted in
@@ -18,10 +25,13 @@ public class MyMain {
     //     isIncreasing([1, 1, 3, 6, 7]) => false (because 1 is not > 1)
     //     isIncreasing([1, 2, 3, 2, 4, 5, 8]) => false
     public static boolean isIncreasing(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
-        return false;
+        for (int i = 0; i < arr.length-1; i++) {
+            if (arr[i] >= arr[i + 1]) {
+                return false;
+            }
+        }
+        return true;
     }
-
     // (Maybe Optional):
     // Write a method that checks if an array is "balanced". An array
     // is balanced if the first and last values differ by at most 2, and
@@ -39,7 +49,13 @@ public class MyMain {
     // Ex: containsDuplicates([1, 2, 3, 2, 1]) => true
     //     containsDuplicates([7, 2, 3, 4, 1, 5]) => false
     public static boolean containsDuplicates(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
+        for (int i = 0; i<arr.length; i++){
+            for (int x = i+1; x<arr.length; x++){// finish going through all array before goes back to top for loop
+                if (arr[i] == arr[x]){ // so goes through entire array and compares it to arr[i] (which is constant until finished going through entire array
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -47,8 +63,15 @@ public class MyMain {
     // Implement the bubble sort algorithm that we discussed in class
     // to sort our code
     // This algorithm returns the sorted array
+    // [12, 5, 23, 74, 12, 86, 2]
     public static int[] bubbleSort(int[] arr) {
-        // REPLACE THIS WITH YOUR CODE
+        for (int i = 0; i < arr.length-1; i++) {
+            if (arr[i] >= arr[i + 1]) {
+                int temp = arr[i];
+                arr[i+1] = temp;
+                arr[i] = arr[i+1];
+            }
+        }
         return arr;
     }
 
